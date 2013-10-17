@@ -9,6 +9,13 @@
     "express": "3.2.5",
     "jade": "*",
     "mongoose": "~3.6.20",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "imageinfo": "~1.0.4",
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6"
+  },
+  "subdomain": "ls",
+  "engines": {
+    "node": "0.10.x"
   }
 }

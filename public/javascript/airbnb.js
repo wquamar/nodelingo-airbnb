@@ -69,10 +69,11 @@
       bookBtn.off();
       bookBtn.on('click', function(e) {
         methods.bookRental(data.id);
+        $('#myModal').modal('hide');
       });
 
-      $('#booking-bookstart').datepicker();
-      $('#booking-bookend').datepicker();
+      //$('#booking-bookstart').datepicker();
+      //$('#booking-bookend').datepicker();
       $('#addon-bookstart').on('click', function() {
         $('#booking-bookstart').datepicker('show');
       });
@@ -86,7 +87,7 @@
 
     bookRental: function(id) {
       jQuery.ajax({
-        url: 'http://xanadu.logicparty.org:4000/rentals/' + id + '/bookings',
+        url: 'http://localhost:3000/rentals/' + id + '/bookings',
         method: 'POST',
         data: {
           startDate: $('#booking-bookstart').val(),
@@ -122,8 +123,8 @@
     renderRecords: function() {
       overlay.show();
       var params = {
-        url: 'http://xanadu.logicparty.org:4000/rentals',
-        dataType: 'jsonp',
+        url: '/rentals',
+        //dataType: 'jsonp',
 
         data: {
           type: $('#query-type').val(),
@@ -143,10 +144,12 @@
           for (var i = 0; i < records.length; i++) {
             var data = {
               id: records[i].id,
-              image: 'http://xanadu.logicparty.org:4000' + records[i].image_urls[0],
+              //image: 'http://xanadu.logicparty.org:4000' + records[i].image_urls[0],
+              image: 'http://localhost:3000' + records[i].image_url,
               title: records[i].title,
               price: '$' + records[i].price + ' per night',
-              subtitle: records[i].type + ' - ' + records[i].location
+              subtitle: records[i].type + ' - ' + records[i].location,
+              bookings: records[i].bookings
             };
 
             recordsMap[records[i].id] = data;

@@ -1,5 +1,6 @@
 module.exports = {
 	mongodb: {
-		uri: 'YOUR_MONGO_URI'
+		//uri: 'mongodb://wquamar:test@paulo.mongohq.com:10035/NodelingoAirbnb'
+		uri: 'mongodb://localhost/nodelingo_airbnb'
 	}
 }
